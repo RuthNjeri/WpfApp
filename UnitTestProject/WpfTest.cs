@@ -12,12 +12,13 @@ namespace WpfUiTesting
         protected const string WindowsApplicationDriverUrl = "http://127.0.0.1:4723";
 
         // Folder that contains the build output of the WPF application previously created
+        // use  if testing locally
         private const string WpfAppId = @"C:\Users\ruthwaiganjo\source\Repos\WpfApp\WpfApp\bin\Debug\netcoreapp3.1\WpfApp.exe";
 
         // Static property to store the session of type WindowsDriver, classes coming from the Appium SDK
         protected static WindowsDriver<WindowsElement> session;
 
-        // Executed before each test
+        // Executed before running all the tests... it is global
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
@@ -42,6 +43,32 @@ namespace WpfUiTesting
 
         }
 
+        // Inoked when all tests have been executed.
+        // Can be used to close the application.
+
+        [ClassCleanup]
+        public static void Cleanup()
+        {
+            if(session != null)
+            {
+                session.Close();
+                session.Quit();
+            }
+        }
+
+
+        // Run after every test, for instance, to clear the text from a previous test
+        // Each test will start from a clean solution
+        [TestInitialize]
+        public void Clear()
+        {
+            // var is an implicitly typed local variable.
+            // The compiler determines the type.
+            var txtName = session.FindElementByAccessibilityId("txtName");
+            txtName.Clear();
+
+        }
+
         // Used by MSTest to identify which actual tests to execute
         [TestMethod]
         public void AddNameToTextBox()
@@ -51,6 +78,16 @@ namespace WpfUiTesting
             session.FindElementByAccessibilityId("sayHelloButton").Click();
             var txtResult = session.FindElementByAccessibilityId("txtResult");
             Assert.AreEqual(txtResult.Text, $"Hello {txtName.Text}");
+        }
+
+        [TestMethod]
+        public void AddWrongNameToTextBox()
+        {
+            var txtName = session.FindElementByAccessibilityId("txtName");
+            txtName.SendKeys("Ruth");
+            session.FindElementByAccessibilityId("sayHelloButton").Click();
+            var txtResult = session.FindElementByAccessibilityId("txtResult");
+            Assert.AreNotEqual(txtResult.Text, $"Hello Ruthy");
         }
     }
 }
