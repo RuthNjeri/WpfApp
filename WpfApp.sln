@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp", "WpfApp\WpfApp.csproj", "{C1334339-FDDA-4339-A0E6-A5FD20704643}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUiTesting", "UnitTestProject\WpfUiTesting.csproj", "{2E9A3762-113E-41E8-AE54-C859E300995B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUiTesting", "UiTestProject\WpfUiTesting.csproj", "{2E9A3762-113E-41E8-AE54-C859E300995B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
