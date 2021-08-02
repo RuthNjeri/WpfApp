@@ -3,10 +3,10 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Windows;
 using System;
 
-namespace UnitTestProject
+namespace WpfUiTesting
 {
     [TestClass]
-    public class UnitTest1
+    public class WpfTest
     {
         // URL where the windows appication driver is available
         protected const string WindowsApplicationDriverUrl = "http://127.0.0.1:4723";
