@@ -12,8 +12,8 @@ namespace WpfUiTesting
         protected const string WindowsApplicationDriverUrl = "http://127.0.0.1:4723";
 
         // Folder that contains the build output of the WPF application previously created
-        // use  if testing locally
-        private const string WpfAppId = @"C:\Users\ruthwaiganjo\source\Repos\WpfApp\WpfApp\bin\Debug\netcoreapp3.1\WpfApp.exe";
+        // use "C:\Users\ruthwaiganjo\source\Repos\WpfApp\WpfApp\bin\Debug\netcoreapp3.1\WpfApp.exe" if testing locally 
+        private const string WpfAppId = @"2e2d2d7b-082c-47b8-93e4-d3dc9cd030fb_fhqx0qxvw8j1g!App";
 
         // Static property to store the session of type WindowsDriver, classes coming from the Appium SDK
         protected static WindowsDriver<WindowsElement> session;
